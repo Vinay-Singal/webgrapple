@@ -1,0 +1,629 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* Header Styling */
+header {
+    background-color: #f4f4f4;
+    width: 100%;
+    padding: 10px 20px;
+    border-bottom: 1px solid #ddd;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-sizing: border-box;
+}
+
+#header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#header h1 {
+    font-size: 1.5rem;
+    color: #333;
+    margin: 0;
+}
+
+.header-info {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Space between text and profile icon */
+}
+
+.header-info h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #444;
+}
+
+.header-info p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.profile-icon {
+    width: 40px;
+    height: 40px;
+    background-color: #353F5E;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.profile-icon span {
+    user-select: none;
+}
+
+/* **********************************************************************************************************
+Navbar*/
+/* Top Navigation (Right of Sidebar) */
+.top-nav {
+    margin: 5%; /* Align to the right of the sidebar */
+    margin-left: 6%;
+    padding: 20px;
+    width: 90%;
+    display: flex;
+    justify-content: space-between; /* Spread content between left and right */
+    align-items: center;
+    background-color: #f4f4f4;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: sticky; /* Stays visible while scrolling */
+    top: 0;
+    z-index: 999;
+    border-bottom: 2px solid #ddd; /* Bottom underline for the entire nav */
+}
+
+.top-nav .menu-links ul {
+    display: flex;
+    gap: 50px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.top-nav .menu-links ul li a {
+    text-decoration: none;
+    font-size: 1rem;
+    color: #333;
+    padding: 0; /* Remove padding for minimal text style */
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.top-nav .menu-links ul li a:hover {
+    color: #1e90ff; /* Change text color to blue */
+}
+
+.top-nav .menu-links ul li a:hover::after {
+    content: '';
+    position: absolute;
+    bottom: -200%;
+    left: 50%; /* Position at the center */
+    width: 85px; /* Width of the underline */
+    height: 2px; /* Height of the underline */
+    background-color: #1e90ff; /* Blue underline */
+    transition: width 0.3s ease;
+    transform: translateX(-50%); /* Center the underline */
+}
+
+/* Icon Section */
+.top-nav .icon-links {
+    display: flex;
+    gap: 15px;
+}
+
+.top-nav .icon-links a {
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: #333;
+    padding: 10px;
+    border-radius: 50%;
+    background-color: #e6e6e6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.top-nav .icon-links a:hover {
+    background-color: #1e90ff;
+    color: white;
+}
+
+/* Icons (can use a library like Font Awesome or placeholders for now) */
+.icon-notifications::before {
+    content: '\2756'; /* Bell icon as a placeholder */
+}
+
+.icon-settings::before {
+    content: '\2699'; /* Gear icon as a placeholder */
+}
+
+.icon-logout::before {
+    content: '\1F6AA'; /* Door icon as a placeholder */
+}
+
+/* **************************************************************************************
+slider */
+/* Sidebar Styling */
+.sidebar {
+    width: 5%; /* Sidebar takes up 5% of the screen width */
+    height: 100vh; /* Full height of the viewport */
+    background-color: #353F5E; /* Background color */
+    color: white; /* Text color */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+    margin-top: 4%;
+    box-sizing: border-box; /* Include padding in width and height calculations */
+    position: fixed; /* Stays in place while scrolling */
+    left: 0;
+    top: 0;
+    z-index: 999; /* Ensure it is above other elements */
+}
+
+.sidebar nav ul {
+    list-style: none; /* Remove bullet points */
+    padding: 0;
+    margin: 0;
+    width: 100%; /* Ensure full width for alignment */
+}
+
+.sidebar nav ul li {
+    margin: 15px 0;
+    text-align: center; /* Center-align content */
+}
+
+.sidebar nav ul li a {
+    text-decoration: none; /* Remove underline */
+    color: white;
+    font-size: 1rem; /* Font size for links */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Space between icon and text */
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar nav ul li a:hover,
+.sidebar nav ul li a.active {
+    background-color: #1e90ff; /* Highlight color for hover/active links */
+}
+
+.main-content {
+    margin-left: 6%;
+    padding: 20px;
+    display: flex;
+}
+
+.first-section, .second-section {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.first-section {
+    margin-right: 20px;
+}
+
+.section-item {
+    background-color: #ffffff;
+    border: 1px solid rgb(219, 219, 219);
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.business-hours {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.business-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.business-hours h4 {
+  margin: 0; /* Remove default margins for proper alignment */
+  font-size: 16px; /* Adjust font size */
+}
+
+.business-hours span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.business-hours ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.business-hours ul li {
+  margin-bottom: 10px;
+  font-size: 14px;
+  line-height: 1.5;
+  display: flex;
+  justify-content: space-between;
+  gap: 80px;
+}
+
+.day {
+  margin-right: 20px;
+}
+
+.time {
+  color: #555;
+}
+
+/* Remove margin from the last li */
+.business-hours ul li:last-child {
+  margin-bottom: 0;
+}
+
+/*Attribute Shared layout properties for span and button  */
+.attributes span, .attributes button {
+    display: block; /* Ensures both span and button behave as block elements */
+    width: 100%; /* Both elements span the entire width */
+  }
+  
+  .attributes {
+    background: white; /* Background color for the section */
+    padding: 20px; /* Padding inside the section */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  }
+  
+  .attributes h4 {
+    font-size: 20px; /* Slightly larger font size for heading */
+    margin-bottom: 10px; /* Add spacing below heading */
+  }
+  
+  .attributes span {
+    color: slategray; /* Slate color for text */
+    margin-top: 10px; /* Add spacing above paragraph */
+    font-size: 14px; /* Font size for better readability */
+    fill: slategray; /* Slate color for SVG icon */
+    text-align: center; /* Centers the content horizontally */
+  }
+  
+  .attributes button {
+    background-color: #007BFF; /* Blue background */
+    color: white; /* White text color */
+    border: none; /* Remove default border */
+    padding: 10px; /* Add padding for better UX */
+    font-size: 16px; /* Adjust font size */
+    font-weight: bold; /* Bold text for emphasis */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    margin-top: 20px; /* Add spacing above button */
+  }
+  
+  .attributes button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+  }
+  
+/* General Styles */
+.appointment-links h4,
+.appointment-links p,
+.add-link-label,
+#appointment-link-form button,
+.appointment-links ul li,
+.appointment-links ul li span,
+.edit-link,
+#appointment-link-input {
+    font-size: 14px;
+}
+
+.appointment-links h4 {
+    margin-bottom: 10px;
+}
+
+.appointment-links p,
+.add-link-label {
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.add-link-label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+#appointment-link-form {
+    display: flex;
+    gap: 10px;
+}
+
+#appointment-link-input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#appointment-link-form button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#appointment-link-form button:hover {
+    background-color: #0056b3;
+}
+
+.appointment-links h5 {
+    font-size: 16px;
+    margin: 20px 0 10px;
+    font-weight: bold;
+}
+
+.appointment-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.appointment-links ul li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 1px solid #eee;
+    border-radius: 4px;
+}
+
+.appointment-links ul li span {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.edit-link {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.edit-link:hover {
+    text-decoration: underline;
+}
+
+.delete-icon {
+    cursor: pointer;
+    fill: #ff5a5a;
+    transition: transform 0.2s ease;
+}
+
+.delete-icon:hover {
+    transform: scale(1.2);
+}
+
+/* Service Area************************* */
+
+.service-area h4 {
+    font-size: 20px; 
+    margin-bottom: 10px;
+  }
+  
+  .service-area p {
+    margin-bottom: 15px;
+    font-size: 14px; 
+    color: #555;
+  }
+  
+  .service-area h5 {
+    font-size: 16px; 
+    margin: 20px 0 10px;
+    font-weight: bold;
+  }
+  
+  #service-area-form {
+    display: flex;
+    gap: 10px; 
+  }
+  
+  #area-input {
+    flex: 1; /* Make the input take the full width */
+    padding: 10px; /* Add padding inside input */
+    border: 1px solid #ccc; /* Add border */
+    border-radius: 4px; /* Slightly rounded corners */
+    font-size: 14px; /* Adjust font size */
+  }
+  
+  #service-area-form button {
+    background-color: #007BFF; /* Blue background for button */
+    color: white; /* White text */
+    border: none; /* Remove border */
+    padding: 10px 20px; /* Add padding */
+    border-radius: 4px; /* Rounded corners */
+    font-size: 14px; /* Font size */
+    cursor: pointer; /* Show pointer cursor on hover */
+  }
+  
+  #service-area-form button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+  }
+  
+  .service-area ul {
+    list-style: none; /* Remove default list style */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margin */
+  }
+  
+  .service-area ul li {
+    display: flex; /* Use flexbox to align items */
+    justify-content: space-between; /* Space between text and icon */
+    align-items: center; /* Align items vertically */
+    margin-bottom: 10px; /* Space between list items */
+    font-size: 14px; /* Adjust font size */
+    padding: 8px; /* Add padding for better spacing */
+    border: 1px solid #eee; /* Optional: Add border around items */
+    border-radius: 4px; /* Optional: Rounded corners */
+  }
+  
+  .delete-icon {
+    cursor: pointer; /* Change cursor to pointer */
+    fill: #ff5a5a; /* Red color for delete icon */
+    border: 1px dotted black;
+    transition: transform 0.2s ease; /* Smooth hover effect */
+  }
+  
+  .delete-icon:hover {
+    transform: scale(1.2); /* Slightly enlarge on hover */
+  }
+
+  /* div1****************************** */
+   /* Container Styling */
+   .profile-container {
+    width: 80%;
+    margin: 0;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Added space between sections */
+  }
+  
+  /* Image Section */
+  .image-section {
+    position: relative;
+    height: 400px; /* Fixed height for image */
+    margin-bottom: 0%;
+  }
+  
+  .background-image {
+    width: 100%;
+    height: 40%;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .overlay {
+    position: static;
+    margin-top: 10%;
+    left: 20px;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .logo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 3px solid white;
+    object-fit: cover;
+  }
+  
+  .business-text {
+    flex-grow: 1;
+  }
+  
+  .business-text h4 {
+    margin: 0%;
+    padding-top: 5%;
+    font-size: 16px;
+    color: #555;
+  }
+  
+  .business-text h3 {
+    margin-top: 2%;
+    font-size: 20px;
+  }
+  
+  /* Details Section */
+  .details-section {
+    margin-top: -90px; /* Removed margin for details section */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Adds space between the items */
+  }
+  
+  /* Individual Business Text Blocks */
+  .business-text {
+    flex: 1 1 25%; /* Creates 3 equal columns (30% width) */
+    min-width: 150px; /* Ensures that each column has a minimum width */
+    margin-bottom: 0; /* Removed margin between blocks */
+  }
+  
+  /* Styling for the Labels */
+  .business-text h4 {
+    margin: 0;
+    font-size: 16px;
+    color: #555;
+    font-weight: bold;
+  }
+  
+  /* Styling for the Content */
+  .business-text p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #777;
+  }
+  
+  .business-text a {
+    color: #007BFF;
+    text-decoration: none;
+  }
+  
+  .business-text a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Styling for the Links */
+  .details-section a {
+    color: #007BFF;
+    text-decoration: none;
+  }
+  
+  .details-section a:hover {
+    text-decoration: underline;
+  }
+  
+  /* About Us Section */
+  h5 {
+    margin-top: 20px;
+    font-size: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+  }
+  
+  h5 svg {
+    width: 20px;
+    height: 20px;
+    fill: #007BFF; 
+  }
+  
+  p {
+    font-size: 14px;
+    color: #555;
+  }
+  
