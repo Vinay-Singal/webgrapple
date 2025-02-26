@@ -1,7 +1,7 @@
 document.getElementById('service-area-form').addEventListener('submit', function (e) {
     e.preventDefault();
     const input = document.getElementById('area-input');
-    const newArea = input.value.trim()
+    const newArea = input.value.trim();
     if (newArea) {
       const list = document.getElementById('area-list');
       const listItem = document.createElement('li');
