@@ -12,15 +12,21 @@ document.getElementById('service-area-form').addEventListener('submit', function
   });
   
   document.getElementById('appointment-link-form').addEventListener('submit', function (e) {
-    e.preventDefault();
-    const input = document.querySelector('#appointment-link-form input');
-    const newLink = input.value.trim();
-    if (newLink) {
-      const list = document.querySelector('.appointment-links ul');
-      const listItem = document.createElement('li');
-      listItem.innerHTML = `<a href="${newLink}" target="_blank">${newLink}</a>`;
-      list.appendChild(listItem);
-      input.value = '';
-    }
-  });
-  
+  e.preventDefault();
+
+  const input = document.querySelector('#appointment-link-form input');
+  let newLink = input.value.trim();
+
+  // Check if link starts with http:// or https://
+  if (newLink && !/^https?:\/\//i.test(newLink)) {
+    newLink = 'https://' + newLink;
+  }
+
+  if (newLink) {
+    const list = document.querySelector('.appointment-links ul');
+    const listItem = document.createElement('li');
+    listItem.innerHTML = `<a href="${newLink}" target="_blank">${newLink}</a>`;
+    list.appendChild(listItem);
+    input.value = '';
+  }
+});
